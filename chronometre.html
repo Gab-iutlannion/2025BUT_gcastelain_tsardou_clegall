@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronomètre</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #073B4C;
+        }
+        .chronometre {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .time {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #073B4C;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+        .buttons button:hover {
+            background: #0056b3;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="chronometre">
+        <div class="time" id="time">00:00:00</div>
+        <div class="buttons">
+            <button id="start">Commencer</button>
+        </div>
+    </div>
+
+    <script>
+        let startTime;
+        let elapsedTime = 0;
+        let timerInterval;
+
+        function timeToString(time) {
+            const milliseconds = Math.floor((time % 1000) / 10).toString().padStart(2, '0');
+            const seconds = Math.floor((time / 1000) % 60).toString().padStart(2, '0');
+            const minutes = Math.floor((time / (1000 * 60)) % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}:${milliseconds}`;
+        }
+
+        function start() {
+            startTime = Date.now() - elapsedTime;
+            timerInterval = setInterval(() => {
+                elapsedTime = Date.now() - startTime;
+                document.getElementById('time').textContent = timeToString(elapsedTime);
+            }, 10);
+        }
+
+        function stop() {
+            clearInterval(timerInterval);
+        }
+
+        function reset() {
+            clearInterval(timerInterval);
+            elapsedTime = 0;
+            document.getElementById('time').textContent = "00:00:00";
+        }
+
+        document.getElementById('start').addEventListener('click', start);
+        document.getElementById('stop').addEventListener('click', stop);
+        document.getElementById('reset').addEventListener('click', reset);
+    </script>
+</body>
+
+</html>
