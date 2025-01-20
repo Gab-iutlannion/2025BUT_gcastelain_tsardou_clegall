@@ -13,7 +13,7 @@ h1{
     width: 30%;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, label, button {
+h1, h2, h4, h5, h6, p, span, label{
     color: #001F3F !important;
 }
 
@@ -23,21 +23,39 @@ h1, h2, h3, h4, h5, h6, p, span, label, button {
     border-radius: 8px;
 }
 
-button {
+#onglets{
+    margin-top: 50px;
+    font-weight: bold;
+    position: relative;
+}
+
+.slider{
+    position: absolute;
+    background-color: #FFD166;
+    width: 100px;
+    height: 20%;
+    margin-top: 30px;
+    left: 520px;
+    border-radius: 3px;
+    transition: 0.5s ease;
+
+}
+
+
+
+/* button {
     background-color: #000000;
     color: #001F3F !important;
     font-weight: bold;
     border-radius: 8px;
-}
+} */
 
 .graph{
     display: flex;
     width: 10%;
 }
 
-button:hover {
-    background-color: #000000;
-}
+
 
 .highlight {
     color: #000000;
@@ -89,6 +107,13 @@ button:hover {
     display: none;
 }
 
+#chrono{
+    display: none;
+}
+
+#titre{
+    margin-top: 100px;
+}
 @media (max-width: 768px) {
     .desktop-only {
         display: none;
@@ -100,5 +125,9 @@ button:hover {
 
     header .subtitle {
         font-size: 1em;
+    }
+
+    .slider{
+        display: none;
     }
 }

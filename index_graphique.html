@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Baguette - Inflation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="Bulma.css">
+    <link rel="stylesheet" href="chrnonometre.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <img class="logo" src="img/logo.png" alt="">
+        <h3 class="baguette">Universal Baguette</h3>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <!-- Navigation Buttons -->
+                        <div id="onglets" class="buttons has-text-centered is-justify-content-center mb-5">
+                            <button id="show-graphic" class="  mr-6">Graphique</button>
+                            <button id="show-game" class="  ml-6">Jeu interactif</button>
+                            <span class="slider"></span>
+                        </div>
+
+                        <div class="chronometre" id="chrono">
+                            <div class="time" id="time">00:00:00</div>
+                            <div class="buttons">
+                                <button id="start">Commencer</button>
+                                <button id="stop">Stop</button>
+                                <button id="reset">Reset</button>
+                            </div>
+                        </div>
+
+            <h2 id="titre" class="subtitle is-4">Taux d'inflation en France (1991 à 2023)</h2>
+            
+
+            <!-- Partie Graphique -->
+            <div id="graphic-section" class="box">
+                <div class="columns">
+                    <div class="column is-8">
+                        <canvas id="lineChart" width="1100" height="600"></canvas>
+                    </div>
+                    <div class="column is-4">
+                        <div class="field">
+                            <label class="label">Paramétrage</label>
+                            <div class="control">
+                                <input id="startYear" class="input" type="number" placeholder="Début de la période" min="1991" max="2022">
+                            </div>
+                            <div class="control mt-2">
+                                <input id="endYear" class="input" type="number" placeholder="Fin de la période" min="1992" max="2023">
+                            </div>
+                            <button id="updateChart" class="button is-primary mt-3">Renouveler le graphique</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jeu interactif -->
+            <div id="game-section" class="box">
+                <div id="start-section">
+                    <h3 class="title is-4 has-text-centered">Jeu interactif</h3>
+                    <p class="has-text-centered">Le but de ce jeu est de tester vos connaissances sur l'inflation.</p>
+                    <div class="has-text-centered mt-4">
+                        <button id="start-button" class="button is-success">Commencer</button>
+                    </div>
+                </div>
+
+                <div id="play-section">
+                    <div class="columns is-vcentered">
+                        <div class="column is-8">
+                            <canvas id="lineChart2" width="1100" height="600"></canvas>
+                        </div>
+                        <div class="column is-4">
+                            <div class="box has-text-centered">
+                                <p><span class="highlight">Point Universal Baguette</span></p>
+                                <p id="points">500</p>
+                            </div>
+                            <div class="game-buttons has-text-centered mt-4">
+                                <button class="button is-primary">⬆️</button>
+                                <button class="button is-primary">⬇️</button>
+                            </div>
+                            <div class="gain-box has-text-centered mt-4">
+                                <p><span class="highlight">Gain | Perte</span></p>
+                                <p id="gain-perte">500</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<script src="graphique.js"></script>
+<script src="outils.js"></script>
+</body>
+</html>
