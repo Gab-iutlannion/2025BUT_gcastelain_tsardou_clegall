@@ -99,6 +99,22 @@ h1, h2, h4, h5, h6, p, span, label{
     color: #FFFFFF !important;
 }
 
+.gato{
+    flex-direction: row;
+    display: flex;
+    justify-content: end;
+}
+
+.grid{
+    background-color: #073B4C;
+    width: 100%;
+}
+
+.content_titre{
+    font-size: 2.5rem;
+    color: #FFD166;
+}
+
 #graphic-section {
     display: block;
 }
