@@ -5,115 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universal Baguette - Inflation</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
-    <style>
-        body {
-            background-color: #FFFFFF;
-            color: #001F3F !important;
-            font-family: 'Arial', sans-serif;
-        }
-
-        header {
-            color: #001F3F !important;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, span, label, button {
-            color: #001F3F !important;
-        }
-
-        .box {
-            background-color: #ffffff;
-            border: 2px solid #000000;
-            border-radius: 8px;
-        }
-
-        button {
-            background-color: #000000;
-            color: #001F3F !important;
-            font-weight: bold;
-            border-radius: 8px;
-        }
-
-        button:hover {
-            background-color: #000000;
-        }
-
-        .highlight {
-            color: #000000;
-            font-weight: bold;
-        }
-
-        .gain-box {
-            background-color: #ffffff;
-            color: #001F3F !important;
-            border-radius: 8px;
-            font-size: 1.2em;
-            padding: 1em;
-            border: 2px solid #000000;
-        }
-
-        .game-buttons button {
-            width: 50px;
-            height: 50px;
-            font-size: 1.5em;
-            margin: 5px;
-        }
-
-        .field {
-            background-color: #FFFFFF;
-            padding: 1em;
-            border-radius: 5px;
-        }
-
-        .is-primary {
-            background-color: #001F3F !important;
-            color: #FFFFFF !important;
-        }
-
-        .is-link {
-            background-color: #001F3F !important;
-            color: #FFFFFF !important;
-        }
-
-        .is-success {
-            background-color: #001F3F !important;
-            color: #FFFFFF !important;
-        }
-
-        #graphic-section {
-            display: block;
-        }
-
-        #game-section {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .desktop-only {
-                display: none;
-            }
-
-            header .title {
-                font-size: 1.5em;
-            }
-
-            header .subtitle {
-                font-size: 1em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Bulma.css">
+    <link rel="stylesheet" href="chrnonometre.css">
 </head>
 <body>
     <section class="section">
         <div class="container">
-            <header class="has-text-centered mb-5">
-                <h1 class="title is-2">Universal Baguette</h1>
-            </header>
-            <h2 class="subtitle is-4">Taux d'inflation en France (1991 à 2023)</h2>
             <!-- Navigation Buttons -->
-            <div class="buttons has-text-centered mb-5">
-                <button id="show-graphic" class="button is-primary">Graphique</button>
-                <button id="show-game" class="button is-link">Jeu</button>
-            </div>
+                        <div class="buttons has-text-centered is-justify-content-center mb-5">
+                            <button id="show-graphic" class="button is-primary mr-3">Graphique</button>
+                            <button id="show-game" class="button is-link ml-3">Jeu interactif</button>
+                        </div>
+
+                        <div class="chronometre">
+                            <div class="time" id="time">00:00:00</div>
+                            <div class="buttons">
+                                <button id="start">Commencer</button>
+                                <button id="stop">Stop</button>
+                                <button id="reset">Reset</button>
+                            </div>
+                        </div>
+
+            <h2 class="subtitle is-4">Taux d'inflation en France (1991 à 2023)</h2>
+            
 
             <!-- Partie Graphique -->
             <div id="graphic-section" class="box mb-5">
@@ -164,7 +78,7 @@
                                 <button class="button is-primary">⬆️</button>
                                 <button class="button is-primary">⬇️</button>
                             </div>
-                            <div class="gain-box mt-4">
+                            <div class="gain-box has-text-centered mt-4">
                                 <p><span class="highlight">Gain | Perte</span></p>
                                 <p id="gain-perte">500</p>
                             </div>
@@ -176,6 +90,41 @@
     </section>
 
     <script>
+        // chronometre
+        let startTime;
+        let elapsedTime = 0;
+        let timerInterval;
+
+        function timeToString(time) {
+            const milliseconds = Math.floor((time % 1000) / 10).toString().padStart(2, '0');
+            const seconds = Math.floor((time / 1000) % 60).toString().padStart(2, '0');
+            const minutes = Math.floor((time / (1000 * 60)) % 60).toString().padStart(2, '0');
+            return `${minutes}:${seconds}:${milliseconds}`;
+        }
+
+        function start() {
+            startTime = Date.now() - elapsedTime;
+            timerInterval = setInterval(() => {
+                elapsedTime = Date.now() - startTime;
+                document.getElementById('time').textContent = timeToString(elapsedTime);
+            }, 10);
+        }
+
+        function stop() {
+            clearInterval(timerInterval);
+        }
+
+        function reset() {
+            clearInterval(timerInterval);
+            elapsedTime = 0;
+            document.getElementById('time').textContent = "00:00:00";
+        }
+
+        document.getElementById('start').addEventListener('click', start);
+        document.getElementById('stop').addEventListener('click', stop);
+        document.getElementById('reset').addEventListener('click', reset);
+
+        // graphique
         const graphicSection = document.getElementById('graphic-section');
         const gameSection = document.getElementById('game-section');
         const showGraphicButton = document.getElementById('show-graphic');

@@ -1,0 +1,31 @@
+.chronometre {
+    width: 45%;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.time {
+    font-size: 48px;
+}
+.buttons button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #073B4C;
+    color: #fff;
+    transition: background 0.3s ease;
+}
+.buttons button:hover {
+    background: #0056b3;
+}
+#reset{
+    width: auto;
+}

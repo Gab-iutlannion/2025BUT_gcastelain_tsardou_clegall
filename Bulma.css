@@ -1,0 +1,104 @@
+body {
+    background-color: #FFFFFF;
+    color: #001F3F !important;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    color: #001F3F !important;
+}
+
+h1{
+    display: flex;
+    width: 30%;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, label, button {
+    color: #001F3F !important;
+}
+
+.box {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #000000;
+    color: #001F3F !important;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.graph{
+    display: flex;
+    width: 10%;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+.highlight {
+    color: #000000;
+    font-weight: bold;
+}
+
+.gain-box {
+    background-color: #ffffff;
+    color: #001F3F !important;
+    border-radius: 8px;
+    font-size: 1.2em;
+    padding: 1em;
+    border: 2px solid #000000;
+}
+
+.game-buttons button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    margin: 5px;
+}
+
+.field {
+    background-color: #FFFFFF;
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.is-primary {
+    background-color: #001F3F !important;
+    color: #FFFFFF !important;
+}
+
+.is-link {
+    background-color: #001F3F !important;
+    color: #FFFFFF !important;
+}
+
+.is-success {
+    background-color: #001F3F !important;
+    color: #FFFFFF !important;
+}
+
+#graphic-section {
+    display: block;
+}
+
+#game-section {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+
+    header .title {
+        font-size: 1.5em;
+    }
+
+    header .subtitle {
+        font-size: 1em;
+    }
+}
