@@ -1,26 +1,4 @@
-// graphique
-const graphicSection = document.getElementById('graphic-section');
-const gameSection = document.getElementById('game-section');
-const chronoSection = document.getElementById('chrono');
-const showGraphicButton = document.getElementById('show-graphic');
-const showGameButton = document.getElementById('show-game');
 
-showGraphicButton.addEventListener('click', () => {
-    graphicSection.style.display = 'block';
-    gameSection.style.display = 'none';
-    chronoSection.style.display = 'none';
-});
-
-showGameButton.addEventListener('click', () => {
-    graphicSection.style.display = 'none';
-    gameSection.style.display = 'block';
-    chronoSection.style.display = 'block';
-});
-
-document.getElementById('start-button').addEventListener('click', function() {
-    document.getElementById('start-section').style.display = 'none';
-    document.getElementById('play-section').style.display = 'block';
-});
 
 
 
