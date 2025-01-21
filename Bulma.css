@@ -41,7 +41,9 @@ h1, h2, h4, h5, h6, p, span, label{
 
 }
 
-
+button{
+    margin:10px;
+}
 
 /* button {
     background-color: #000000;
