@@ -42,7 +42,9 @@ h1, h2, h4, h5, h6, p, span, label{
 
 }
 
-
+button{
+    margin:10px;
+}
 
 /* button {
     background-color: #000000;
@@ -98,6 +100,22 @@ h1, h2, h4, h5, h6, p, span, label{
 .is-success {
     background-color: #001F3F !important;
     color: #FFFFFF !important;
+}
+
+.gato{
+    flex-direction: row;
+    display: flex;
+    justify-content: end;
+}
+
+.grid{
+    background-color: #073B4C;
+    width: 100%;
+}
+
+.content_titre{
+    font-size: 2.5rem;
+    color: #FFD166;
 }
 
 #graphic-section {
