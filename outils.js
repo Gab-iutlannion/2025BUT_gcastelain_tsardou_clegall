@@ -11,16 +11,37 @@ showGraphicButton.addEventListener('click', () => {
     gameSection.style.display = 'none';
     chronoSection.style.display = 'none';
 });
-    //Bouton jeu
+
+//Slider
+let slider = document.querySelector(".slider");
+let showGraphic = document.getElementById("show-graphic");
+let showGame = document.getElementById("show-game");
+
+
+showGraphic.addEventListener('click', () => {
+    slider.style.left = '520px';
+});
+
+showGame.addEventListener('click', () => {
+    slider.style.left = '715px';
+});
+
+
+
+//Bouton jeu
 showGameButton.addEventListener('click', () => {
     graphicSection.style.display = 'none';
     gameSection.style.display = 'block';
     chronoSection.style.display = 'block';
+    document.getElementById('interface-jeu').style.display = 'none';
+    
+
 });
 
 document.getElementById('start-button').addEventListener('click', function() {
     document.getElementById('start-section').style.display = 'none';
     document.getElementById('play-section').style.display = 'block';
+    document.getElementById('interface-jeu').style.display = 'block';
 });
 
 // chronometre
@@ -47,28 +68,13 @@ function stop() {
     clearInterval(timerInterval);
 }
 
-function reset() {
-    clearInterval(timerInterval);
-    elapsedTime = 0;
-    document.getElementById('time').textContent = "00:00:00";
-}
 
-document.getElementById('start').addEventListener('click', start);
+
+document.getElementById('start-button').addEventListener('click', start);
 document.getElementById('stop').addEventListener('click', stop);
-document.getElementById('reset').addEventListener('click', reset);
 
 
 
-//Slider
-let slider = document.querySelector(".slider");
-let showGraphic = document.getElementById("show-graphic");
-let showGame = document.getElementById("show-game");
 
 
-showGraphic.addEventListener('click', () => {
-    slider.style.left = '520px';
-});
 
-showGame.addEventListener('click', () => {
-    slider.style.left = '715px';
-});

@@ -17,20 +17,16 @@
     </nav>
     <section class="section">
         <div class="container">
-            <!-- Navigation Buttons -->
+            <!-- Navigation Onglets -->
                         <div id="onglets" class="buttons has-text-centered is-justify-content-center mb-5">
                             <button id="show-graphic" class="  mr-6">Graphique</button>
                             <button id="show-game" class="  ml-6">Jeu interactif</button>
                             <span class="slider"></span>
                         </div>
 
-                        
-
-            <h2 id="titre" class="subtitle is-4">Taux d'inflation en France (1991 à 2023)</h2>
-            
-
             <!-- Partie Graphique -->
             <div id="graphic-section" class="box">
+                <h2 id="titre" class="subtitle is-4">Taux d'inflation en France (1991 à 2023)</h2>
                 <div class="columns">
                     <div class="column is-8">
                         <canvas id="lineChart" width="1100" height="600"></canvas>
@@ -44,7 +40,8 @@
                             <div class="control mt-2">
                                 <input id="endYear" class="input" type="number" placeholder="Fin de la période" min="1992" max="2023">
                             </div>
-                            <button id="updateChart" class="button is-primary mt-3">Renouveler le graphique</button>
+                            <button id="updateChart" class="button is-primary mt-3">Appliquer la recherche</button>
+                            <button id="restartChart" class="button is-primary mt-6">Renouveler le graphique</button>
                         </div>
                     </div>
                 </div>
@@ -54,9 +51,8 @@
             <div class="chronometre" id="chrono">
                 <div class="time" id="time">00:00:00</div>
                 <div class="buttons">
-                    <button id="start">Commencer</button>
-                    <button id="stop">Stop</button>
-                    <button id="reset">Reset</button>
+                    <button id="stop" class="button">Stop</button>
+                    <button id="reset" class="button">Reset</button>
                 </div>
             </div>
             <div id="game-section" class="box">
@@ -75,14 +71,14 @@
                         <div class="column is-8">
                             <canvas id="lineChart2" width="1100" height="600"></canvas>
                         </div>
-                        <div class="column is-4">
+                        <div id="interface-jeu" class="column is-4">
                             <div class="box has-text-centered">
                                 <p><span class="highlight">Point Universal Baguette</span></p>
-                                <p id="points">500</p>
+                                <p id="points">0</p>
                             </div>
                             <div class="game-buttons has-text-centered mt-4">
-                                <button class="button is-primary">⬆️</button>
-                                <button class="button is-primary">⬇️</button>
+                                <button id="upButton" class="button is-primary">⬆️</button>
+                                <button id="downButton" class="button is-primary">⬇️</button>
                             </div>
                             <div class="gain-box has-text-centered mt-4">
                                 <p><span class="highlight">Gain | Perte</span></p>
@@ -96,7 +92,7 @@
     </section>
 
 
-<script src="graphique.js"></script>
+<script src="graphique-jeu.js"></script>
 <script src="outils.js"></script>
 </body>
 </html>

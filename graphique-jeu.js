@@ -1,7 +1,3 @@
-
-
-
-
 const Data = [
     { year: 1991, value: 3.2 },
     { year: 1992, value: 2.4 },
@@ -15,7 +11,7 @@ const Data = [
     { year: 2000, value: 1.7 },
     { year: 2001, value: 1.6 },
     { year: 2002, value: 1.9 },
-    { year: 2003, value: 2.1 },
+    { year: 2003, value: 2.2 },
     { year: 2004, value: 2.1 },
     { year: 2005, value: 1.7 },
     { year: 2006, value: 1.6 },
@@ -96,6 +92,11 @@ options: {
 }
 });
 
+
+
+
+//Jeu
+
 const ctx2 = document.getElementById('lineChart2').getContext('2d');
 const lineChart2 = new Chart(ctx2, {
 type: 'line',
@@ -135,7 +136,7 @@ options: {
 }
 });
 
-// Update chart on button click
+// Paramétrage du graphiqe 
 document.getElementById('updateChart').addEventListener('click', () => {
 const startYear = parseInt(document.getElementById('startYear').value, 10);
 const endYear = parseInt(document.getElementById('endYear').value, 10);
@@ -152,3 +153,65 @@ lineChart.data.labels = chartData.labels;
 lineChart.data.datasets[0].data = chartData.data;
 lineChart.update();
 });
+
+// Restart du graphiqe 
+document.getElementById('restartChart').addEventListener('click', () => {
+    lineChart.data.labels = initialData.labels;
+    lineChart.data.datasets[0].data = initialData.data;
+    lineChart.update();
+})
+
+
+
+//Jeu
+
+let index = 0;
+let score = 0;
+let visibleData = [initialData.data[0]];
+
+function verifyData(prediction){
+    let instantValue = initialData.data[index];
+    let nextValue = initialData.data[index + 1];
+
+    if (instantValue < nextValue && prediction === 'up'){
+        score++;
+        index++;
+    }
+    else if (instantValue > nextValue && prediction === 'down'){
+        score++;
+        index++;
+    }
+    else{
+        score--;
+        index++;
+    }
+
+
+    document.getElementById('points').innerText = `Score : ${score}`;
+}
+
+
+const up = document.getElementById('upButton');
+const down = document.getElementById('downButton');
+up.addEventListener('click', () => verifyData('up'));
+down.addEventListener('click', () => verifyData('down'));
+
+
+function reset() {
+    score = 0;
+    index = 0;
+    document.getElementById('points').innerText = `Score : ${score}`;
+    clearInterval(timerInterval);
+    elapsedTime = 0;
+    document.getElementById('time').textContent = "00:00:00";
+    document.getElementById('start-section').style.display = 'block';
+    document.getElementById('interface-jeu').style.display = 'none';
+    
+}
+
+document.getElementById('reset').addEventListener('click', reset);
+
+
+
+
+
