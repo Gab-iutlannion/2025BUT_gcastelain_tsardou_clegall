@@ -1,3 +1,7 @@
+// Annaelle : 1min10 - 2100 pts
+// Mael : 49sec - 700pts
+//
+
 const Data = [
     { year: 1991, value: 3.2 },
     { year: 1992, value: 2.4 },
@@ -96,15 +100,18 @@ options: {
 
 
 //Jeu
+let index = 0;
+let score = 0;
+let visibleData = [initialData.data[0]];
 
 const ctx2 = document.getElementById('lineChart2').getContext('2d');
 const lineChart2 = new Chart(ctx2, {
 type: 'line',
 data: {
-    labels: initialData.labels,
+    labels: initialData.labels.map((_, i) => (i <= index ? initialData.labels[i] : '')),
     datasets: [{
         label: ' Taux d inflation',
-        data: initialData.data,
+        data: visibleData,
         borderColor: '#FFD166',
         backgroundColor: '#FFD166',
         borderWidth: 3,
@@ -162,31 +169,38 @@ document.getElementById('restartChart').addEventListener('click', () => {
 })
 
 
-
-//Jeu
-
-let index = 0;
-let score = 0;
-let visibleData = [initialData.data[0]];
-
 function verifyData(prediction){
     let instantValue = initialData.data[index];
     let nextValue = initialData.data[index + 1];
 
-    if (instantValue < nextValue && prediction === 'up'){
-        score++;
-        index++;
-    }
-    else if (instantValue > nextValue && prediction === 'down'){
-        score++;
-        index++;
+    if ((index +2) == Data.length){
+        stop();
+        document.getElementById('stop').style.display = 'none';
     }
     else{
-        score--;
-        index++;
+
+        let gain = 500 / instantValue;
+        const arrondi = Math.round(gain);
+        document.getElementById('gain-perte').innerText = `${arrondi} €`;
+    
+        if (instantValue < nextValue && prediction === 'up'){
+            score+= 100;
+            index++;
+        }
+        else if (instantValue > nextValue && prediction === 'down'){
+            score+= 100;
+            index++;
+        }
+        else{
+            score-= 100;
+            index++;
+        }
+    
     }
 
 
+    visibleData.push(nextValue);
+    updateChart();
     document.getElementById('points').innerText = `Score : ${score}`;
 }
 
@@ -196,10 +210,22 @@ const down = document.getElementById('downButton');
 up.addEventListener('click', () => verifyData('up'));
 down.addEventListener('click', () => verifyData('down'));
 
+// mise à jour du graphique
+function updateChart() {
+    lineChart2.data.datasets[0].data = visibleData;
+    lineChart2.data.labels = initialData.labels.map((_, i) => (i <= index ? initialData.labels[i] : ''));
+    lineChart2.update();
+}
 
+
+// reset du temps et du score
 function reset() {
     score = 0;
     index = 0;
+    visibleData = [initialData.data[0]];
+    document.getElementById('stop').style.display = 'none';
+    document.getElementById('reset').style.display = 'none';
+    updateChart();
     document.getElementById('points').innerText = `Score : ${score}`;
     clearInterval(timerInterval);
     elapsedTime = 0;
@@ -209,7 +235,15 @@ function reset() {
     
 }
 
+// Stop le chronomètre
+function stop() {
+    clearInterval(timerInterval);
+}
+
+document.getElementById('stop').addEventListener('click', stop);
+document.getElementById('stop').style.display = 'none';
 document.getElementById('reset').addEventListener('click', reset);
+document.getElementById('reset').style.display = 'none';
 
 
 

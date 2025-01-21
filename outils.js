@@ -42,6 +42,9 @@ document.getElementById('start-button').addEventListener('click', function() {
     document.getElementById('start-section').style.display = 'none';
     document.getElementById('play-section').style.display = 'block';
     document.getElementById('interface-jeu').style.display = 'block';
+    document.getElementById('stop').style.display = 'block';
+    document.getElementById('reset').style.display = 'block';
+
 });
 
 // chronometre
