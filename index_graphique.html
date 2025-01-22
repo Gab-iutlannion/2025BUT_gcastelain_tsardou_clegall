@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="chrnonometre.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <img class="logo" src="img/logo.png" alt="">
@@ -18,11 +20,11 @@
     <section class="section">
         <div class="container">
             <!-- Navigation Onglets -->
-                        <div id="onglets" class="buttons has-text-centered is-justify-content-center mb-5">
-                            <button id="show-graphic" class="  mr-6">Graphique</button>
-                            <button id="show-game" class="  ml-6">Jeu interactif</button>
-                            <span class="slider"></span>
-                        </div>
+            <div id="onglets" class="buttons has-text-centered is-justify-content-center mb-5">
+                <button id="show-graphic" class="  mr-6">Graphique</button>
+                <button id="show-game" class="  ml-6">Jeu interactif</button>
+                <span class="slider"></span>
+            </div>
 
             <!-- Partie Graphique -->
             <div id="graphic-section" class="box">
@@ -35,10 +37,12 @@
                         <div class="field">
                             <label class="label">Paramétrage</label>
                             <div class="control">
-                                <input id="startYear" class="input" type="number" placeholder="Début de la période" min="1991" max="2022">
+                                <input id="startYear" class="input" type="number" placeholder="Début de la période"
+                                    min="1991" max="2022">
                             </div>
                             <div class="control mt-2">
-                                <input id="endYear" class="input" type="number" placeholder="Fin de la période" min="1992" max="2023">
+                                <input id="endYear" class="input" type="number" placeholder="Fin de la période"
+                                    min="1992" max="2023">
                             </div>
                             <button id="updateChart" class="button is-primary mt-3">Appliquer la recherche</button>
                             <button id="restartChart" class="button is-primary mt-6">Renouveler le graphique</button>
@@ -56,11 +60,12 @@
                 </div>
             </div>
             <div id="game-section" class="box">
-                
+
 
                 <div id="start-section">
                     <h3 class="title is-4 has-text-centered">Jeu interactif</h3>
-                    <p class="has-text-centered">Le but de ce jeu est de tester vos connaissances sur l'inflation.</p>
+                    <p class="has-text-centered">Le but de ce jeu est de deviner le cour de l'évolution de l'inflation en France via une courbe qui se déssinera au fur et à mesure de vos réponses. <br> Si vous penssez qu'elle va augmenter appuyez sur la flèche vers le haut et inversement. <br>
+                    Vos réponses influront sur votre score final.</p>
                     <div class="has-text-centered mt-4">
                         <button id="start-button" class="button is-success">Commencer</button>
                     </div>
@@ -81,7 +86,7 @@
                                 <button id="downButton" class="button is-primary">⬇️</button>
                             </div>
                             <div class="gain-box has-text-centered mt-4">
-                                <p><span class="highlight">Gain | Perte</span></p>
+                                <p><span class="highlight">Porte monnaie</span></p>
                                 <p id="gain-perte">500</p>
                             </div>
                         </div>
@@ -94,63 +99,66 @@
     <div id="donne" class="fixed-grid has-3-cols ">
         <div class="grid ">
             <div class="cell has-text-centered has-text-weight-bold is-col-span-3">
-                      <div class="content_titre">
-                        LE TEMPS EST VENU DE
-                      </div>
-
-                      <div class="content_titre">
-                        FAIRE LES COMPTES
-                      </div>
-              </div>
-
-          <div class="cell has-text-centered">
-            <div class="card m-3 mx-6">
-                <figure class="gato image is-32x32">
-                    <img src="img/Vector.png" alt="Graphique des taux d'inflation">
-                </figure>
-
-                <div class="card-content">
-                  <div class="content">
-                    <h2 class="has-text-weight-bold">11 ans</h2>
-                    11 années passées au dessus du seuil des 2% de taux d’inflations
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <div class="cell has-text-centered">
-            <div class="card m-3 mx-6">
-                <div class="card-content">
-                  <div class="content">
-                    <h2 class="has-text-weight-bold">1 record</h2>
-                    L’année 2022 signe le record du taux d’inflation avec 5.2%                          </div>
+                <div class="content_titre">
+                    LE TEMPS EST VENU DE
                 </div>
 
-                <figure class="gato image is-32x32">
-                    <img class="gato" src="img/Vectormédaille.png" alt="Graphique des taux d'inflation">
-                </figure>
+                <div class="content_titre">
+                    FAIRE LES COMPTES
+                </div>
+            </div>
 
-              </div>
-          </div>
+            <div class="cell has-text-centered">
+                <div class="card m-3 mx-6">
+                    <figure class="gato image is-32x32">
+                        <img src="img/Vector.png" alt="Graphique des taux d'inflation">
+                    </figure>
 
-          <div class="cell has-text-centered">
-            <div class="card m-3 mx-6">
-                <figure class="gato image is-32x32">
-                    <img src="img/Vector.png" alt="Graphique des taux d'inflation">
-                </figure>
+                    <div class="card-content">
+                        <div class="content">
+                            <h2 class="has-text-weight-bold">11 ans</h2>
+                            11 années passées au dessus du seuil des 2% de taux d’inflations
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="card-content">
-                  <div class="content">
-                    <h2 class="has-text-weight-bold">1 espoir</h2>
-                    Poursuivre le début de descente de la courbe                        </div>
-              </div>
-          </div>
+            <div class="cell has-text-centered">
+                <div class="card m-3 mx-6">
+                    <div class="card-content">
+                        <div class="content">
+                            <h2 class="has-text-weight-bold">1 record</h2>
+                            L’année 2022 signe le record du taux d’inflation avec 5.2%
+                        </div>
+                    </div>
+
+                    <figure class="gato image is-32x32">
+                        <img class="gato" src="img/Vectormédaille.png" alt="Graphique des taux d'inflation">
+                    </figure>
+
+                </div>
+            </div>
+
+            <div class="cell has-text-centered">
+                <div class="card m-3 mx-6">
+                    <figure class="gato image is-32x32">
+                        <img src="img/Vector.png" alt="Graphique des taux d'inflation">
+                    </figure>
+
+                    <div class="card-content">
+                        <div class="content">
+                            <h2 class="has-text-weight-bold">1 espoir</h2>
+                            Poursuivre le début de descente de la courbe
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-</div>
+    </div>
 
 
-<script src="graphique-jeu.js"></script>
-<script src="outils.js"></script>
+    <script src="graphique-jeu.js"></script>
+    <script src="outils.js"></script>
 </body>
+
 </html>

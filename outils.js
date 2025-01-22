@@ -12,6 +12,18 @@ showGraphicButton.addEventListener('click', () => {
     chronoSection.style.display = 'none';
 });
 
+function reset() {
+    clearInterval(timerInterval);
+    elapsedTime = 0;
+    document.getElementById('time').textContent = "00:00:00";
+    document.getElementById('start-section').style.display = 'block';
+    document.getElementById('interface-jeu').style.display = 'none';
+    document.getElementById('stop').style.display = 'none';
+    document.getElementById('reset').style.display = 'none';
+    
+}
+
+
 //Slider
 let slider = document.querySelector(".slider");
 let showGraphic = document.getElementById("show-graphic");
@@ -20,10 +32,13 @@ let showGame = document.getElementById("show-game");
 
 showGraphic.addEventListener('click', () => {
     slider.style.left = '520px';
+    document.getElementById('donne').style.display = 'block';
 });
 
 showGame.addEventListener('click', () => {
     slider.style.left = '715px';
+    document.getElementById('donne').style.display = 'none';
+    reset();
 });
 
 

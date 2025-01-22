@@ -1,7 +1,11 @@
 // Annaelle : 1min10 - 2100 pts
 // Mael : 49sec - 700pts
-//
+// Youna et Cylea : 2min 11sec - 700pts
+// Antonin : 50sec - -200pts
+// Elijah : 1min15 - -300pts
 
+
+// Graphique
 const Data = [
     { year: 1991, value: 3.2 },
     { year: 1992, value: 2.4 },
@@ -100,6 +104,8 @@ options: {
 
 
 //Jeu
+
+
 let index = 0;
 let score = 0;
 let visibleData = [initialData.data[0]];
