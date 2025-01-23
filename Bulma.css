@@ -99,20 +99,31 @@ h1, h2, h4, h5, h6, p, span, label{
     color: #FFFFFF !important;
 }
 
-.ve
+.pensement{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    justify-content: end;
+    right: 0;
+}
 
 .gato{
-    flex-direction: row;
+    height: 80px;
+    width: 80px;
     display: flex;
-    justify-content: end;
-
+padding: 10px;
+    position: absolute;
 
 }
 
 .image-medaille{
-    align-items: center;
+
     display: flex;
-    justify-content:end;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    right: 0;
+
 }
 
 .img{
