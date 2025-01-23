@@ -40,3 +40,13 @@ nav h3{
 }
 
 
+.eco{
+    font-style: italic;
+    font-size: 15px;
+}
+
+.INSEE{
+    display: flex;
+    right: 0;
+    justify-content: end;
+}
