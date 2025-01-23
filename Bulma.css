@@ -99,11 +99,26 @@ h1, h2, h4, h5, h6, p, span, label{
     color: #FFFFFF !important;
 }
 
+.ve
+
 .gato{
     flex-direction: row;
     display: flex;
     justify-content: end;
+
+
 }
+
+.image-medaille{
+    align-items: center;
+    display: flex;
+    justify-content:end;
+}
+
+.img{
+height: 55px;
+}
+
 
 .card{
     background-color: #FEFEFE;
@@ -119,6 +134,10 @@ h1, h2, h4, h5, h6, p, span, label{
     color: #FFD166;
     font-family: "Lilita One", serif;
     padding-top: 35px;
+
+}
+.content{
+    color:#073B4C
 }
 
 #graphic-section {

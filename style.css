@@ -25,3 +25,12 @@ nav h3{
     width: 60px;
     margin-right: 20px;
 }
+
+.titre-jeu{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color:#001F3F;
+    font-weight: 500;
+    font-size: 30px
+}
