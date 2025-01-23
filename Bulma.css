@@ -187,3 +187,29 @@ height: 55px;
 .controle{
     background-color: #FFFFFF;
 }
+
+footer{
+    background-color: #073B4C;
+    color: white;
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+}
+.poster{
+border-radius: 30px;
+
+max-height: 800px;
+
+}
+
+.poster-desciption{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.des{
+    align-items: center;
+    display: flex;
+    font-weight: 600;
+    font-size: 30px;
+}
